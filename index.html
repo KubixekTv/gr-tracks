@@ -200,6 +200,20 @@
     <div class="gray-background">
         <div class="bottom-car"></div>
     </div>
+        
+    <script type="text/javascript">
+        const hideableElement = document.querySelector('.video-bg');
+        const threshold = 1080;
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > threshold) {
+                hideableElement.style.display = 'none';
+            }
+            else {
+                hideableElement.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 
 </html>
