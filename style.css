@@ -1,0 +1,666 @@
+@import url('https://fonts.googleapis.com/css2?family=REM:wght@800&family=Josefin+Sans&family=Golos+Text&family=Unbounded:wght@400;700;900&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: black;
+    overflow-x: hidden;
+    font-family: 'Golos Text', sans-serif;
+}
+
+/*------------------Scrollbar------------------*/
+/*------------------Scrollbar------------------*/
+/*------------------Scrollbar------------------*/
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #ffffff33;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #0099FF;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0d5281;
+  }
+
+/*------------------Title Screen------------------*/
+/*------------------Title Screen------------------*/
+/*------------------Title Screen------------------*/
+
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+    animation: show-bg 1s ease-out;
+}
+video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes slide-up {
+    0%{
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes slide-down {
+    from{
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes show-bg {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 0.2;
+    }
+}
+
+.title-screen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh!important;
+    font-family: 'Unbounded', cursive;
+    color: white;
+    text-align: center;
+}
+.title-screen .big-title{
+    font-weight: 900;
+    font-size: 10vw;
+    margin-bottom: -1.5vw;
+}
+.big-title img{
+    width: 80vw;
+    filter: invert(1);
+}
+.title-screen .small-title{
+    font-weight: 400;
+    font-size: 1.5vw;
+    margin-bottom: 30px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.title-screen .big-title, .small-title{
+    animation: slide-up 0.5s cubic-bezier(.28,.01,.25,1);
+}
+.title-screen button{
+    user-select: none;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 1vw;
+    background: none;
+    border: solid 3px #0099FF;
+    border-radius: 20px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    animation: slide-down 0.5s cubic-bezier(.28,.01,.25,1);
+}
+.title-screen div:nth-child(1){
+    filter: drop-shadow(0px 0px 30px #00000077);
+}
+.title-screen button:nth-child(1){
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.title-screen button:nth-child(2){
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.title-screen button:hover{
+    background-color: #0099FF;
+}
+.title-screen button:active{
+    background-color: #005289;
+}
+
+/*------------------Main Content------------------*/
+/*------------------Main Content------------------*/
+/*------------------Main Content------------------*/
+
+.fade{
+    height: 200px;
+    background: linear-gradient(to bottom, #00000000, #000000FF);
+}
+
+main{
+    overflow: hidden;
+    background-color: #000000;
+}
+
+@keyframes desc-bg-move {
+    from{
+        background-position-x: 0;
+    }
+    to{
+        background-position-x: 100%;
+    }
+}
+.description{
+    background-image: url(./images/dotsBG-bw.png);
+    background-size: 33%;
+    padding: 10% 15%;
+    animation: desc-bg-move 60s infinite linear;
+}
+.gr-background{
+    background-image: url(./images/gr-pattern.svg);
+    background-size: 5%;
+    animation: desc-bg-move 60s infinite linear;
+}
+main section{
+    padding: 0 15%;
+}
+
+@keyframes check-bg-move {
+    from{
+        background-position-x: 0;
+    }
+    to{
+        background-position-x: 100%;
+    }
+}
+.check-bg{
+    padding: 6vw 0;
+    background-size: cover;
+    background-position-y: center;
+    background-repeat: repeat-x;
+    background-image: url(./images/check.png);
+    background-size: 2.5%;
+    transform: scale(1.5) rotateZ(3deg);
+
+    opacity: 0.3;
+    animation: check-bg-move 60s infinite linear;
+}
+.check-bg:nth-child(2n){
+    animation-direction: reverse;
+    transform: rotateZ(-3deg) scale(1.05);
+}
+
+.grid-display{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 100px;
+    row-gap: 50px;
+
+    align-items: center;
+    align-content: center;
+}
+
+/*------------------Main Text Styling------------------*/
+
+main h1{
+    font-family: 'REM', sans-serif;
+    font-weight: 900;
+    font-size: 2.7vw;
+    color: #0099FF;
+    margin-bottom: 30px;
+}
+main p{
+    font-size: 1.1vw;
+    color: white;
+    margin-bottom: 50px;
+}
+main .last-paragraph{
+    margin-bottom: 0px;
+}
+
+/*------------------Track Preview Images------------------*/
+
+.preview{
+    cursor: pointer;
+    height: fit-content;
+    border-radius: 20px;
+    background-color: white;
+    border: 3px solid #fff;
+    box-shadow: 0px 5px 0px #0099FF;
+    font-size: 1vw;
+    color: black;
+    text-align: center;
+    transition: 0.2s;
+}
+.preview-right{
+    text-align: right;
+}
+a{
+    text-decoration: none;
+
+}
+.right{
+    transform: rotateZ(2deg) scale(1);
+}
+.left{
+    transform: rotateZ(-2deg) scale(1);
+}
+.preview:hover{
+    transform: scale(1.05);
+}
+main img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+/*------------------Statistics------------------*/
+/*------------------Statistics------------------*/
+/*------------------Statistics------------------*/
+
+.statistics{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 3rem;
+}
+
+.stat-box{
+    border-radius: 20px;
+    height: 500px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0d0d0d;
+    transition: 0.2s;
+}
+.stat-box:hover{
+    transform: scale(1.05);
+}
+
+.stat-box h1{
+    font-family: 'Unbounded', cursive;
+    margin-bottom: 5px;
+}
+
+.stat-box img{
+    width: 20%;
+    filter: invert(1);
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+.stat-box:hover img{
+    transform: scale(1.2) rotateZ(5deg);
+}
+
+/*------------------Tracks of the month------------------*/
+/*------------------Tracks of the month------------------*/
+/*------------------Tracks of the month------------------*/
+
+.month-tracks{
+    padding-top: 100px;
+    height: auto;
+    padding-bottom: 10px;
+}
+.track-position{
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.track-position .date{
+    text-align: right;
+    font-size: 1rem;
+}
+.track-position .author{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.track-position .track{
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #79c9ff;
+
+    transform-origin: center left;
+    transition: 0.2s;
+}
+.track-position .track-button{
+    margin: 10px;
+    filter: drop-shadow(0px 0px 0px #111);
+    transform-origin: center left;
+    transition: 0.2s;
+}
+.track-position:hover .track-button{
+    margin-right: 70px;
+    transform: scale(1.3);
+}
+.track-position:hover{
+    background-color: #111;
+}
+
+.track-position img{
+    width: 36px;
+    margin-left: 5px;
+    filter: invert(1);
+}
+
+.track-position .line{
+    flex: 1;
+    height: 2px;
+    background-color: #ffffff33;
+}
+
+/*------------------Ready to join------------------*/
+/*------------------Ready to join------------------*/
+/*------------------Ready to join------------------*/
+
+.ready-to-join{
+    margin-top: 100px;
+    padding: 150px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(./images/gr-pattern.svg);
+    background-size: 5%;
+    animation: desc-bg-move 60s infinite linear reverse;
+}
+@keyframes rotate {
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+.ready-to-join img{
+    margin-bottom: 20px;
+    width: 7vw;
+    filter: invert(1);
+    animation: rotate 30s infinite linear;
+}
+
+.ready-to-join button{
+    user-select: none;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 1vw;
+    background: none;
+    border: solid 3px #0099FF;
+    border-radius: 20px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.ready-to-join button:nth-child(1){
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.ready-to-join button:nth-child(2){
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.ready-to-join button:hover{
+    background-color: #0099FF;
+}
+.ready-to-join button:active{
+    background-color: #005289;
+}
+
+/*------------------Footer------------------*/
+/*------------------Footer------------------*/
+/*------------------Footer------------------*/
+
+footer{
+    color: #fff;
+    text-align: center;
+    padding: 300px 10% 10% 10%;
+    font-size: 0.8rem;
+    background: linear-gradient(to bottom, #000000ff 0%, #000000ff 30%, #111 100%);
+}
+footer p{
+    filter: drop-shadow(0px 10px 5px #000);
+}
+footer img{
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.2s;
+}
+footer img:hover{
+    transform: scale(1.3);
+}
+
+.gray-background{
+    background-color: #111;
+}
+
+.bottom-car{
+    width: 100%;
+    height: 25px;
+    background-image: url(./images/icons/bolide-icon.svg);
+    background-size: 2.5%;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    filter: invert(1);
+    animation: riding-car 10s infinite linear;
+}
+@keyframes riding-car {
+    from{
+        background-position: 110% bottom;
+    }
+    to{
+        background-position: -10% bottom;
+    }
+}
+
+/*------------------Responsivenes------------------*/
+/*------------------Responsivenes------------------*/
+/*------------------Responsivenes------------------*/
+
+@media screen and (max-width: 1200px) {
+    .title-screen .big-title img{
+        width: 90vw;
+    }
+    .title-screen .small-title{
+        font-size: 3vw;
+        margin-bottom: 30px;
+    }
+    .title-screen button{
+        font-size: 2vw;
+        border-radius: 30px;
+    }
+    .ready-to-join button{
+        font-size: 2vw;
+        border-radius: 30px;
+    }
+    .ready-to-join img{
+        width: 13vw;
+    }
+
+    .check-bg{
+        padding: 7vw 0;
+        background-size: 3.5%;
+    }
+
+    main .description{
+        background-size: 100%;
+        padding: 10% 2%;
+    }
+    main section{
+        padding: 0 2%;
+    }
+    main .grid-display{
+        grid-template-columns: 1fr;
+        column-gap: 100px;
+        row-gap: 50px;
+        align-items: center;
+        align-content: center;
+    }
+    main .grid-display .preview{
+        margin: 0 25%;
+        font-size: 1.5vw;
+    }
+    main .description .grid-display div:nth-child(2){
+        order: 1;
+    }
+    main .description .grid-display div:nth-child(1){
+        order: 2;
+    }
+    main .description .grid-display div:nth-child(6){
+        order: 5;
+    }
+    main .description .grid-display div:nth-child(5){
+        order: 6;
+    }
+    main h1{
+        text-align: center;
+        font-size: 5vw;
+    }
+    main p{
+        text-align: center;
+        font-size: 2vw;
+    }
+
+    main .statistics{
+        margin: 3rem 0;
+    }
+    main .stat-box img{
+        width: 33%;
+    }
+    .month-tracks .track-position img{
+        display: none;
+    }
+    .track-position .date{
+        font-size: 1.2rem;
+    }
+    .track-position .track{
+        margin: 0;
+        font-size: 2rem;
+    }
+    .track-position .line{
+        display: none;
+    }
+    .track-position:hover .track-button{
+        transform: scale(1);
+        margin-right: 0;
+    }
+
+    footer{
+        padding-top: 10%;
+    }
+    .bottom-car{
+        height: 30px;
+        background-size: 5%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .title-screen .big-title img{
+        width: 95vw;
+    }
+    .title-screen .small-title{
+        font-size: 4vw;
+        margin-bottom: 30px;
+    }
+    .title-screen button{
+        font-size: 3vw;
+        border-radius: 30px;
+    }
+    .ready-to-join button{
+        font-size: 3vw;
+        border-radius: 30px;
+    }
+    .ready-to-join img{
+        width: 20vw;
+    }
+
+    .check-bg{
+        padding: 8vw 0;
+        background-size: 5%;
+    }
+
+    main .description{
+        background-size: 100%;
+        padding: 10% 2%;
+    }
+    main section{
+        padding: 0 2%;
+    }
+    main .grid-display{
+        grid-template-columns: 1fr;
+        column-gap: 100px;
+        row-gap: 50px;
+        align-items: center;
+        align-content: center;
+    }
+    main .grid-display .preview{
+        margin: 5%;
+        font-size: 3vw;
+    }
+    main .description .grid-display div:nth-child(2){
+        order: 1;
+    }
+    main .description .grid-display div:nth-child(1){
+        order: 2;
+    }
+    main .description .grid-display div:nth-child(6){
+        order: 5;
+    }
+    main .description .grid-display div:nth-child(5){
+        order: 6;
+    }
+    main h1{
+        text-align: center;
+        font-size: 10vw;
+    }
+    main p{
+        text-align: center;
+        font-size: 5vw;
+    }
+
+    main .statistics{
+        margin: 3rem 0;
+    }
+    main .stat-box img{
+        width: 50%;
+    }
+    .month-tracks .track-position img{
+        display: none;
+    }
+    .track-position .date{
+        font-size: 1.5rem;
+    }
+    .track-position .author{
+        font-size: 1.5rem;
+    }
+    .track-position .track{
+        margin: 0;
+        font-size: 2rem;
+    }
+    .track-position .line{
+        display: none;
+    }
+    .track-position:hover .track-button{
+        transform: scale(1);
+        margin-right: 10px;
+    }
+
+    footer{
+        padding-top: 10%;
+    }
+    .bottom-car{
+        height: 50px;
+        background-size: 8%;
+    }
+}
